@@ -28,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build with Marp
+        run: make html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
