@@ -33,26 +33,37 @@ make clean
 
 ```bash
 # HTML 생성
-npx @marp-team/marp-cli@latest index.md -o index.html
+npx @marp-team/marp-cli@latest slides/index.md -o index.html
 
 # PDF 생성
-npx @marp-team/marp-cli@latest index.md -o index.pdf
+npx @marp-team/marp-cli@latest slides/index.md -o index.pdf
 
 # PPTX 생성 (로컬 파일 허용)
-npx @marp-team/marp-cli@latest index.md -o index.pptx --allow-local-files
+npx @marp-team/marp-cli@latest slides/index.md -o index.pptx --allow-local-files
 ```
 
 ## 프로젝트 구조
 
 ```
 .
-├── index.md           # 메인 워크숍 프레젠테이션 (Marp 형식)
-├── README.md          # 프로젝트 소개
+├── slides/            # 마크다운 소스 파일들
+│   └── index.md       # 메인 워크숍 프레젠테이션 (Marp 형식)
+├── README.md          # 프로젝트 소개 (빌드 대상 아님)
+├── CLAUDE.md          # Claude Code 작업 가이드
 ├── Makefile           # 빌드 자동화
+├── .gitignore         # 빌드 결과물 제외
+├── *.html, *.pdf, *.pptx  # 빌드 결과 (Git 제외, GitHub Pages용)
 └── .github/
     └── workflows/
         └── deploy.yml # GitHub Pages 자동 배포
 ```
+
+### 폴더 구조 철학
+
+- **slides/**: 모든 프레젠테이션 마크다운 소스 파일 관리
+- **루트**: 빌드 결과물 생성 (GitHub Pages 호환)
+- **README.md**: Git으로 관리되지만 빌드 대상에서 제외
+- **빌드 결과물**: .gitignore로 Git에서 제외
 
 ## 콘텐츠 작성 규칙
 
@@ -110,7 +121,9 @@ GitHub Actions 탭에서 "Deploy to GitHub Pages" 워크플로우를 수동으�
 
 ### 콘텐츠 수정 시 유의사항
 
+- 새 프레젠테이션 추가 시 `slides/` 폴더에 .md 파일 생성
 - 워크숍 실습 섹션(Hands-On 실습 ①~④)은 순서대로 진행되도록 구성
 - 각 슬라이드는 간결하게 유지 (불릿 포인트 3-5개)
 - 실습 예제는 실제 동작 가능한 코드/시나리오 사용
 - 한국어로 작성 (워크숍 대상이 한국 개발자)
+- 빌드 후 생성되는 HTML/PDF/PPTX 파일은 Git에 커밋하지 않음

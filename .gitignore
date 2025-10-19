@@ -1,0 +1,14 @@
+# Marp 빌드 결과물
+*.html
+*.pdf
+*.pptx
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

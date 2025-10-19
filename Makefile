@@ -1,9 +1,11 @@
-SRCS = $(wildcard *.md)
-HTML = $(SRCS:.md=.html)
-PDFS = $(SRCS:.md=.pdf)
-PPTS = $(SRCS:.md=.pptx)
+# slides/ 폴더의 마크다운 파일들 (README.md 제외)
+SRCS = $(wildcard slides/*.md)
+# 출력 파일명: slides/index.md → index.html
+HTML = $(patsubst slides/%.md,%.html,$(SRCS))
+PDFS = $(patsubst slides/%.md,%.pdf,$(SRCS))
+PPTS = $(patsubst slides/%.md,%.pptx,$(SRCS))
 
-.PHONY: all clean
+.PHONY: all clean html pdf ppt
 
 all: html pdf ppt
 
@@ -13,13 +15,14 @@ pdf: $(PDFS)
 
 ppt: $(PPTS)
 
-%.html: %.md
+# slides/에서 읽어서 루트에 생성
+%.html: slides/%.md
 	npx @marp-team/marp-cli@latest $< -o $@
 
-%.pdf: %.md
+%.pdf: slides/%.md
 	npx @marp-team/marp-cli@latest $< -o $@
 
-%.pptx: %.md
+%.pptx: slides/%.md
 	npx @marp-team/marp-cli@latest $< -o $@ --allow-local-files
 
 clean:
