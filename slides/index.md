@@ -168,7 +168,8 @@ AI는 반복적 작업을 자동화하고,
 
 # 리얼월드(Real World) 앱 
 
-> https://realworld-docs.netlify.app/
+> 사양 문서:  https://realworld-docs.netlify.app/
+> 구현된 코드들: https://codebase.show/projects/realworld/
 
 - 리얼월드(RealWorld)는 Medium.com 스타일의 소셜 블로깅 플랫폼을 예제로 삼아, 여러 언어·프레임워크로 같은 앱을 구현해 보는 풀스택 학습 프로젝트
 - 실제 서비스 수준의 앱을 통해 프론트엔드와 백엔드 구조를 학습하고 비교
