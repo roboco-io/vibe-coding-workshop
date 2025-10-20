@@ -9,7 +9,9 @@ paginate: true
 
 ### 프로덕션 레벨 바이브 코딩 프로세스 실습
 
-주식회사 로보코
+> https://roboco.io/vibe-coding-workshop/
+
+로보코
 수석 컨설턴트 정도현
 
 ---
