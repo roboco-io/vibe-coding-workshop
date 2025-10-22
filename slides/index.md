@@ -9,7 +9,6 @@ paginate: true
 
 ### 프로덕션 레벨 바이브 코딩 프로세스 실습
 
-> 슬라이드: https://roboco.io/vibe-coding-workshop/
 > 리포지토리: https://github.com/roboco-io/vibe-coding-workshop
 
 로보코
